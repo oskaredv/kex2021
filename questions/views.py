@@ -5,7 +5,7 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth import authenticate, login
 
-def landing(request):
+def login(request):
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(request, username=username, password=password)
@@ -17,6 +17,8 @@ def landing(request):
         # Return an 'invalid login' error message.
         HttpResponse('felaktiga uppgifter')
 
-
+def landing(request):
+    HttpResponse('välkommen')
+    
 def frontpage(request):
     HttpResponse('du är inloggad')
