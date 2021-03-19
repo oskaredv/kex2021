@@ -15,10 +15,10 @@ def login(request):
 
     else:
         # Return an 'invalid login' error message.
-        HttpResponse('felaktiga uppgifter')
+        return HttpResponse('felaktiga uppgifter')
 
 def landing(request):
-    HttpResponse('välkommen')
-    
+    return HttpResponse('välkommen')
+
 def frontpage(request):
-    HttpResponse('du är inloggad')
+    return HttpResponse('du är inloggad')
