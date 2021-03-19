@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn kex2021.wsgi
