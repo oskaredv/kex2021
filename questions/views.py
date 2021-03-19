@@ -19,4 +19,4 @@ def landing(request):
 
 
 def frontpage(request):
-    HttpResponse(du är inloggad)
+    HttpResponse('du är inloggad')
