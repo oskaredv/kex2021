@@ -7,18 +7,6 @@ from django.http import HttpResponse
 
 from django.contrib.auth import authenticate, login
 
-def login(request):
-    template = loader.get_template('accounts/login.html')
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return HttpResponseRedirect('questions/')
-
-    else:
-        # Return an 'invalid login' error message.
-        return HttpResponse('felaktiga uppgifter')
 
 
 class SignUpView(generic.CreateView):
