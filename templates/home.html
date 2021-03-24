@@ -6,7 +6,6 @@
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  Last login {{request.user.last_login}}
   userID {{user.id}}
   <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
