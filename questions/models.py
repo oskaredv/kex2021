@@ -46,7 +46,7 @@ class Profile(models.Model):
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
-    pub_date = models.DateTimeField(default=datetime.now())
+    pub_date = models.DateTimeField(auto_now_add=True, blank = True)
 
 
 class Choice(models.Model):
