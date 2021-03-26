@@ -17,7 +17,7 @@ import django_heroku
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Location of custom user
-AUTH_USER_MODEL = 'questions.User'
+#AUTH_USER_MODEL = 'questions.User'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -129,10 +129,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Should be at the bottom of this file
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
