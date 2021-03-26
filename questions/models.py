@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from datetime import datetime
 
 
-class User(AbstractUser):
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     group = models.BooleanField(default=False)
     points = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
@@ -21,7 +22,7 @@ class User(AbstractUser):
         if self.num_questions == 10 :
             if not self.ten_question : 
                 self.ten_question = True
-                increment_num_badges(self)         
+                increment_num_badges(self)
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
