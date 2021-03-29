@@ -75,17 +75,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'kex2021.wsgi.application'
 
 
-# Database
+# Database 
+#CREATE USER kex2021user WITH PASSWORD '20kex21';
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+'''import dj_database_url
+DATABASES['default'] =  dj_database_url.config()'''
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'db.postgreSQL',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db',
+        'USER': 'kex2021user',
+        'PASSWORD': '20kex21',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
