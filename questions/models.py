@@ -47,12 +47,24 @@ class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
     pub_date = models.DateTimeField(auto_now_add=True, blank = True)
+    choice_a = models.CharField(max_length=200, default="")
+    choice_a_correct = models.BooleanField(default=False)
+    choice_b = models.CharField(max_length=200, default="")
+    choice_b_correct = models.BooleanField(default=False)
+    choice_c = models.CharField(max_length=200, default="")
+    choice_c_correct = models.BooleanField(default=False)
+    choice_d = models.CharField(max_length=200, default="")
+    choice_d_correct = models.BooleanField(default=False)
 
 
+
+
+'''
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     correct_choice = models.BooleanField(default=False)
+'''
  
     
 """

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'questions/static/questions/login.css' %}">
+
+{% block title %}
+Write a question
+{% endblock %}
+
+{% block content %}
+<h2>Write a question (2)</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit Question</button>
+</form>
+{% endblock %}
