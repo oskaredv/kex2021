@@ -3,7 +3,7 @@ from .models import Question
 
 class CreateQuestionForm(ModelForm):
 
-    def __init__(self, args, **kwargs):
+    def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
         return super(ModelForm, self).init(args, kwargs)
 
