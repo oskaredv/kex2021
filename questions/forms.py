@@ -5,10 +5,10 @@ class CreateQuestionForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
-        return super(ModelForm, self).init(args, kwargs)
+        return super(ModelForm, self).init(*args, **kwargs)
 
 
-    def save(self, *args, kwargs):
+    def save(self, *args, **kwargs):
         kwargs['commit']=False
         obj = super(ModelForm, self).save(*args, **kwargs)
         if self.request:
