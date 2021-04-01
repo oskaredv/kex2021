@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('questions/', views.frontpage, name='frontpage'),
-    path('createquestion/', views.QuestionCreateView, name='createquestion')
+    path('createquestion/', QuestionCreateView.as_view(), name='createquestion')
 ]
