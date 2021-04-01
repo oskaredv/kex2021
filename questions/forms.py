@@ -5,7 +5,7 @@ class CreateQuestionForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
-        return super().init(*args, **kwargs)
+        return super().__init__(*args, **kwargs)
 
 
     def save(self, *args, **kwargs):
