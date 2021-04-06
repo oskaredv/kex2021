@@ -17,22 +17,62 @@ class Profile(models.Model):
     five_day_streak = models.BooleanField(default=False)
     seven_day_streak = models.BooleanField(default=False)
 
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            if self.user.id % 2 == 0:
+                self.group == True
+        super(Profile, self).save(*args, **kwargs)
+
+
     def increment_num_questions(self):
+        self.increment_points()
         self.num_questions += 1
+        self.check_question_badges()
+        
+    def check_question_badges(self):
         if self.num_questions == 10 :
             if not self.ten_question : 
                 self.ten_question = True
                 increment_num_badges(self)
+                self.points += 500
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
                 increment_num_badges(self)
+                self.points += 300
         elif self.num_questions == 1 :
             if not self.first_question :
                 self.first_questions = True
                 increment_num_badges(self)
+                self.points += 100
 
-        # Hantera streaks
+    def increment_points(self):
+        if(self.streak == 0):
+            self.points += 100
+        else:    
+            self.points += 100 * (0.9 + (self.streak/10))
+    
+    def increment_streak(self):
+        self.streak += 1
+        self.check_streak_badges()
+
+    def check_streak_badges(self):
+        if self.streak == 7 :
+            if not seven_day_streak : 
+                seven_day_streak = True
+                increment_num_badges(self)
+                self.points += 600
+        elif self.streak == 5 :
+            if not self.five_day_streak :
+                self.five_day_streak = True
+                increment_num_badges(self)
+                self.points += 400
+        elif self.streak == 3 :
+            if not self.three_day_streak :
+                self.three_day_streak = True
+                increment_num_badges(self)
+                self.points += 200
 
     def get_group(self):
         return self.group
@@ -57,27 +97,6 @@ class Question(models.Model):
     choice_d_correct = models.BooleanField(default=False)
 
 
-
-
-'''
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    correct_choice = models.BooleanField(default=False)
-'''
- 
-    
-"""
-class Badges(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    first_question = models.BooleanField(default=False)
-    five_questions = models.BooleanField(default=False)
-    ten_questions = models.BooleanField(default=False)
-    three_day_streak = models.BooleanField(default=False)
-    five_day_streak = models.BooleanField(default=False)
-    seven_day_streak = models.BooleanField(default=False)
-
-    def set_badge_true(user_id)
-        User.objects.get(pk=user_id).update_num_badges
-"""
-
+    #def save(self, *args, **kwargs):
+    #    profile = Profile.objects.get(self.user)
+         

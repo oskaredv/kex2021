@@ -6,8 +6,7 @@
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  userID {{user.id}}
-  <a>Hej </a>>
+  userID: {{user.id}}
   <p><a href="{% url 'createquestion' %}">Write a question</a></p>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
