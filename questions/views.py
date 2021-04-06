@@ -5,6 +5,7 @@ from django.views import generic
 from django.utils import timezone
 from .models import Question
 from django.views.generic.edit import CreateView
+from django.contrib.auth,mixins import LoginRequiredMixin
 from .forms import CreateQuestionForm
 
 def landing(request):
@@ -14,11 +15,15 @@ def frontpage(request):
     return HttpResponse('du är inloggad')
 
 
-class QuestionCreateView(CreateView):
+class QuestionCreateView(LoginRequiredMixin, CreateView):
     model = Question
     form_class = CreateQuestionForm
     success_url = reverse_lazy('createquestion')
     template_name = 'questions/createquestion.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 

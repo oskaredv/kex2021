@@ -3,15 +3,15 @@ from .models import Question
 
 class CreateQuestionForm(ModelForm):
 
-    def save(self, *args, **kwargs):
-        if CreateQuestionForm.is_valid():
+    '''def save(self, *args, **kwargs):
+        if self.CreateQuestionForm.is_valid():
             #obj = super(ModelForm, self).save(*args, **kwargs)
             question = super().save(user=self.request.user, COMMIT=False)
             #if self.request:
             #    obj.user = self.request.user
                 #user = User.objects.get(username=request.user.username)
             question.save()
-            return redirect('createquestion')
+            return redirect('createquestion')'''
 
     class Meta:
         model = Question
