@@ -5,7 +5,7 @@ from django.views import generic
 from django.utils import timezone
 from .models import Question
 from django.views.generic.edit import CreateView
-from django.contrib.auth,mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateQuestionForm
 
 def landing(request):
