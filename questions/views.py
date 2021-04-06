@@ -20,7 +20,8 @@ class ProfileView(LoginRequiredMixin,DetailView):
     template_name = 'questions/viewprofile.html'
 
     def get_object(self):
-        return get_object_or_404(Profile, self.request.user.id)
+        return Profile.objects.get(self.request.user.id)
+        #return get_object_or_404(Profile, self.request.user.id)
     
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
