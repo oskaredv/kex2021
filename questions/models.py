@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     group = models.BooleanField(default=False)
     points = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)

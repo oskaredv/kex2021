@@ -3,8 +3,9 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.utils import timezone
-from .models import Question
+from .models import Question, Profile
 from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateQuestionForm
 
@@ -13,6 +14,18 @@ def landing(request):
 
 def frontpage(request):
     return HttpResponse('du är inloggad')
+
+class ProfileView(LoginRequiredMixin,DetailView):
+    model = Profile
+    template_name = 'questions/viewprofile.html'
+
+    def get_object(self):
+        return get_object_or_404(Profile, self.request.session['user_id'])
+    
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+        #context['questions'] = Question.objects.filter(user__username__iexact=self.kwargs.get('username'))
+        return context  
 
 
 class QuestionCreateView(LoginRequiredMixin, CreateView):
