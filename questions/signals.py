@@ -5,7 +5,7 @@ from .models import Question, Profile
 
 
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, **kwargs)
+def create_user_profile(sender, instance, **kwargs):
     if kwargs.get('created', True):
         Profile.objects.create(user=instance)
 
@@ -15,7 +15,7 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 @receiver(post_save, sender=Question)
-def update_profile(sender, instance, **kwargs)
+def update_profile(sender, instance, **kwargs):
     profile = Profile.objects.get(user = instance.user)
     questions = Question.objects.filter(user=instance.user).order_by('-pub_date')
     if questions.exists():
