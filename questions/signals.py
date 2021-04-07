@@ -9,9 +9,9 @@ def create_user_profile(sender, instance, **kwargs):
     if kwargs.get('created', True):
         Profile.objects.create(user=instance)
 
-@receiver(post_save, sender=User)
+'''@receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()   
+    instance.profile.save()'''   
 
 
 @receiver(post_save, sender=Question)
