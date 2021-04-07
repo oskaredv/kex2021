@@ -16,6 +16,7 @@ from datetime import datetime
     three_day_streak = models.BooleanField(default=False)
     five_day_streak = models.BooleanField(default=False)
     seven_day_streak = models.BooleanField(default=False)
+    testthing = models.IntegerField(default=0)
 
 
     def save(self, *args, **kwargs):
