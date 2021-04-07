@@ -32,6 +32,5 @@ def update_profile(sender, instance, **kwargs):
         profile.streak = 1
         
     profile.increment_num_questions()
-    profile.increment_num_questions()
     profile.save()
        
