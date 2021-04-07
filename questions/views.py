@@ -20,7 +20,7 @@ class ProfileView(LoginRequiredMixin,DetailView):
     template_name = 'questions/viewprofile.html'
 
     def get_object(self):
-        return Profile.objects.get(self.request.user.id)
+        return Profile.objects.get(self.request.user)
         #return get_object_or_404(Profile, self.request.user.id)
     
     '''def get_context_data(self, **kwargs):
@@ -38,38 +38,5 @@ class QuestionCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
-
-
-'''def QuestionCreateView(request):
-    if request.method == 'POST':
-        question_form = forms.CreateQuestionForm(request.POST)
-        if question_form.is_valid()
-            question = question_form.save(commit=False)
-            question.user = request.user
-            question.save()
-            
-            
-
-            
-            phone=phone_form.save(False)
-            phone.farm = farm
-            phone.save()
-            address = address_form.save(False)
-            address.farm = farm
-            address.save()
-            
-            question_text=
-            
-    farm_form = forms.CreateFarmsForm()
-    phone_form = forms.TelephoneCreateForm()
-    address_form = forms.AddressCreateForm()
-    context = {'farm_form':farm_form, 'phone_form':phone_form, 'address_form':address_form,}
-    return render(request, "livestock/farm_name.html", context)
-    
-    question_form = forms.CreateQuestionForm()
-    choice_form = forms.CreateChoiceForm()
-    context = {'question_form':question_form, 'choice_form':choice_form,}
-    return render(request, "questions/createquestion.html", context)'''
     
     
