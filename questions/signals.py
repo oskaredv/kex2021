@@ -7,7 +7,10 @@ from .models import Question, Profile
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, **kwargs):
     if kwargs.get('created', True):
-        Profile.objects.create(user=instance)
+        grp = False
+        if (instance.id % 2 == 0):
+            grp = True
+        Profile.objects.create(user=instance, group=grp)
 
 '''@receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):

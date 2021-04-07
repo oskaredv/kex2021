@@ -16,13 +16,13 @@ class Profile(models.Model):
     five_day_streak = models.BooleanField(default=False)
     seven_day_streak = models.BooleanField(default=False)
 
-
+    '''
     def save(self, *args, **kwargs):
         if not self.id:
             if self.user.id % 2 == 0:
                 self.group == True
         super(Profile, self).save(*args, **kwargs)
-
+    '''
 
     def increment_num_questions(self):
         self.increment_points()
