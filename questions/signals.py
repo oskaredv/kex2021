@@ -24,7 +24,7 @@ def update_profile(sender, instance, **kwargs):
             profile.increment_streak()
         elif delta > 1:
             profile.streak = 1
-    else 
+    else: 
         profile.streak = 1
         
     profile.increment_num_questions()
