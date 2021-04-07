@@ -42,7 +42,7 @@ class Profile(models.Model):
                 self.points += 300
         elif self.num_questions == 1 :
             if not self.first_question :
-                self.first_questions = True
+                self.first_question = True
                 self.increment_num_badges()
                 self.points += 100
 
