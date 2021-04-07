@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'questions',
-    'questions.apps.QuestionsConfig',
 ]
 
 MIDDLEWARE = [
