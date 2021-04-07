@@ -23,10 +23,10 @@ class ProfileView(LoginRequiredMixin,DetailView):
         return Profile.objects.get(self.request.user.id)
         #return get_object_or_404(Profile, self.request.user.id)
     
-    def get_context_data(self, **kwargs):
+    '''def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
         #context['questions'] = Question.objects.filter(user__username__iexact=self.kwargs.get('username'))
-        return context  
+        return context'''  
 
 
 class QuestionCreateView(LoginRequiredMixin, CreateView):
