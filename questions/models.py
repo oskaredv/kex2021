@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
-class Profile(models.Model):
+'''class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     group = models.BooleanField(default=False)
     points = models.IntegerField(default=0)
@@ -16,6 +16,7 @@ class Profile(models.Model):
     three_day_streak = models.BooleanField(default=False)
     five_day_streak = models.BooleanField(default=False)
     seven_day_streak = models.BooleanField(default=False)
+    testthing = models.IntegerField(default=0)
 
 
     def save(self, *args, **kwargs):
@@ -82,7 +83,7 @@ class Profile(models.Model):
 
     def increment_num_badges(self):
         self.num_badges += 1
-       
+   '''    
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
