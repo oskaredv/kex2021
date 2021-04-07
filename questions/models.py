@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     group = models.BooleanField(default=False)
     points = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
@@ -82,7 +82,7 @@ class Profile(models.Model):
 
     def increment_num_badges(self):
         self.num_badges += 1
-        
+       
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
