@@ -33,17 +33,17 @@ class Profile(models.Model):
         if self.num_questions == 10 :
             if not self.ten_question : 
                 self.ten_question = True
-                increment_num_badges(self)
+                self.increment_num_badges()
                 self.points += 500
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
-                increment_num_badges(self)
+                self.increment_num_badges()
                 self.points += 300
         elif self.num_questions == 1 :
             if not self.first_question :
                 self.first_questions = True
-                increment_num_badges(self)
+                self.increment_num_badges()
                 self.points += 100
 
     def increment_points(self):
@@ -60,17 +60,17 @@ class Profile(models.Model):
         if self.streak == 7 :
             if not seven_day_streak : 
                 seven_day_streak = True
-                increment_num_badges(self)
+                self.increment_num_badges()
                 self.points += 600
         elif self.streak == 5 :
             if not self.five_day_streak :
                 self.five_day_streak = True
-                increment_num_badges(self)
+                self.increment_num_badges()
                 self.points += 400
         elif self.streak == 3 :
             if not self.three_day_streak :
                 self.three_day_streak = True
-                increment_num_badges(self)
+                self.increment_num_badges()
                 self.points += 200
 
     def get_group(self):
