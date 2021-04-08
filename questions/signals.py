@@ -19,8 +19,8 @@ def save_user_profile(sender, instance, **kwargs):
 
 @receiver(pre_save, sender=Question)
 def update_streak(sender, instance, **kwargs):
+    profile = Profile.objects.get(user = instance.user)
     if kwargs.get('created', True):
-        profile = Profile.objects.get(user = instance.user)
         questions = Question.objects.filter(user=instance.user).order_by('-pub_date')
         if questions.exists():
             delta = (datetime.date.today() - questions.first().pub_date).days
@@ -35,8 +35,8 @@ def update_streak(sender, instance, **kwargs):
 
 @receiver(post_save, sender=Question)
 def update_profile(sender, instance, **kwargs):
+    profile = Profile.objects.get(user = instance.user)   
     if kwargs.get('created', True):
-        profile = Profile.objects.get(user = instance.user)   
         profile.increment_num_questions()
     profile.save()
        
