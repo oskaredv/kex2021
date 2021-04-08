@@ -8,12 +8,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateQuestionForm
-
-def landing(request):
-    return HttpResponse('välkommen')
-
-def frontpage(request):
-    return HttpResponse('du är inloggad')
+from django.views.generic.list import ListView
 
 class ProfileView(LoginRequiredMixin,DetailView):
     model = Profile
@@ -28,6 +23,14 @@ class ProfileView(LoginRequiredMixin,DetailView):
         #context['questions'] = Question.objects.filter(user__username__iexact=self.kwargs.get('username'))
         return context'''  
 
+class LeaderboardView(ListView):
+    model = Profile
+    template_name = 'questions/viewleaderboard.html'
+
+    def get_queryset(self, *args, **kwargs):
+        profiles = super(LeaderboardView, self).get_queryset(*args, **kwargs)
+        profiles = profiles.order_by("-points")[:10]
+        return profiles
 
 class QuestionCreateView(LoginRequiredMixin, CreateView):
     model = Question

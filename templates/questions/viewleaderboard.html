@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+<ul>
+    <!-- Iterate over object_list -->
+    {% for profile in profile_list %}
+    <!-- Display Objects -->
+    <li>{{ profile.user.username }}</li>
+    <li>{{ profile.points }}</li>
+
+    <hr/>
+    <!-- If objet_list is empty  -->
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>
