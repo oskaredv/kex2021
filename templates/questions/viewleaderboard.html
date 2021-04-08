@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+
+
+{% block title %}
+Leaderboard
+{% endblock %}
+
+{%block content%}
+<h1>Leaderboard</h1>
 <ul>
     <!-- Iterate over object_list -->
     {% for profile in profile_list %}
@@ -12,3 +20,4 @@
     <li>No objects yet.</li>
     {% endfor %}
 </ul>
+{% endblock %}
