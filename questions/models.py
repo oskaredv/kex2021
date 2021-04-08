@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
+import datetime 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -85,7 +85,7 @@ class Profile(models.Model):
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
-    pub_date = models.DateTimeField(auto_now_add=True, blank = True)
+    pub_date = models.DateField(default=datetime.date.today, blank = True)
     choice_a = models.CharField(max_length=200, default="")
     choice_a_correct = models.BooleanField(default=False)
     choice_b = models.CharField(max_length=200, default="")
