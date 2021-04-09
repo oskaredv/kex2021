@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
-
+<style>
+  body{
+    margin: 20px;
+  }
+</style>
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
