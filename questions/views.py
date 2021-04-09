@@ -23,7 +23,7 @@ class ProfileView(LoginRequiredMixin,DetailView):
         #context['questions'] = Question.objects.filter(user__username__iexact=self.kwargs.get('username'))
         return context'''  
 
-class LeaderboardView(ListView):
+class LeaderboardView(LoginRequiredMixin,ListView):
     model = Profile
     template_name = 'questions/viewleaderboard.html'
 
