@@ -47,7 +47,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         gained_points = profile.points - profile.previous_points
         if profile.group:
             #return self.success_message + "You gained " + % (gamification_message = gained_points) + " Good job!"
-            return "Your question was successfully added!" + "\n" + "You gained " + gained_points + " points"
+            return "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points"
         else: 
             return "Your question was successfully added!"
 
