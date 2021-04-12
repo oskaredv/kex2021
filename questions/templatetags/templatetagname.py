@@ -1,5 +1,5 @@
 from django import template
-from .models import Profile
+from questions.models import Profile
 
 register = template.Library()
 
