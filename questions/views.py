@@ -37,7 +37,8 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Question
     form_class = CreateQuestionForm
     success_url = reverse_lazy('createquestion')
-    success_message = "Your question was successfully added! %(gamification_message)"
+    #success_message = "Your question was successfully added! %(gamification_message)"
+    #success_message = "Your question was successfully added!"
     template_name = 'questions/createquestion.html'
 
     def get_success_message(self):
@@ -45,9 +46,9 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         gained_points = profile.points - profile.previous_points
         if profile.group:
             #return self.success_message + "You gained " + % (gamification_message = gained_points) + " Good job!"
-            return self.success_message % (gamification_message = "You gained " + gained_points + " points")
+            return "Your question was successfully added!" + "\n" + "You gained " + gained_points + " points"
         else: 
-            return self.success_message % (gamification_message = "")
+            return "Your question was successfully added!"
 
 
     def form_valid(self, form):
