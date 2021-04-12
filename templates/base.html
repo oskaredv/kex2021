@@ -1,4 +1,5 @@
 {% load static %}
+{% load templatetagname %}
 
 <!DOCTYPE html>
 <html>
@@ -47,8 +48,12 @@
   <main>
     <div class="topnav">
       <a class="active" href="{% url 'home' %}">Home</a>
-      <a href="{% url 'profile' %}">Profile</a>
-      <a href="{% url 'leaderboard' %}">Leaderboard</a>
+      {% if user.is_authenticated  %}
+        <a href="{% url 'profile' %}">Profile</a>
+        {% if user|has_gamification %}
+          <a href="{% url 'leaderboard' %}">Leaderboard</a>
+        {% endif %}
+      {% endif %}
       <div class="topnav-right">
         <a href="{% url 'logout' %}">Log out</a>
       </div>
