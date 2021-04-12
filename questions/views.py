@@ -41,7 +41,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     #success_message = "Your question was successfully added!"
     template_name = 'questions/createquestion.html'
 
-    def get_success_message(self):
+    def get_success_message(self, cleaned_data):
         profile = Profile.objects.get(user=self.user)
         gained_points = profile.points - profile.previous_points
         if profile.group:
