@@ -42,7 +42,8 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'questions/createquestion.html'
 
     def get_success_message(self, cleaned_data):
-        profile = Profile.objects.get(user=self.user)
+        #profile = Profile.objects.get(user=self.user)
+        profile = Profile.objects.get(user=self.object.user)
         gained_points = profile.points - profile.previous_points
         if profile.group:
             #return self.success_message + "You gained " + % (gamification_message = gained_points) + " Good job!"
