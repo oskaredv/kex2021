@@ -6,6 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     group = models.BooleanField(default=False)
     points = models.IntegerField(default=0)
+    previous_points = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
     num_questions = models.IntegerField(default=0)
     num_badges = models.IntegerField(default=0)
@@ -34,23 +35,28 @@ class Profile(models.Model):
             if not self.ten_question : 
                 self.ten_question = True
                 self.increment_num_badges()
-                self.points += 500
+                self.increment_points(500)
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
                 self.increment_num_badges()
-                self.points += 300
+                self.increment_points(300)
         elif self.num_questions == 1 :
             if not self.first_question :
                 self.first_question = True
                 self.increment_num_badges()
-                self.points += 100
+                self.increment_points(100)
 
     def increment_points(self):
+        self.previous_points = self.points
         if(self.streak == 0):
             self.points += 100
         else:    
             self.points += 100 * (0.9 + (self.streak/10))
+
+    def increment_points(self, points):
+        self.previous_points = self.points
+        self.points += points
     
     def increment_streak(self):
         self.streak += 1
@@ -61,20 +67,23 @@ class Profile(models.Model):
             if not seven_day_streak : 
                 seven_day_streak = True
                 self.increment_num_badges()
-                self.points += 600
+                self.increment_points(600)
         elif self.streak == 5 :
             if not self.five_day_streak :
                 self.five_day_streak = True
                 self.increment_num_badges()
-                self.points += 400
+                self.increment_points(400)
         elif self.streak == 3 :
             if not self.three_day_streak :
                 self.three_day_streak = True
                 self.increment_num_badges()
-                self.points += 200
+                self.increment_points(200)
 
     def get_group(self):
         return self.group
+    
+    def get_gained_points(self):
+        return self.points - self.previous_points
     
     def get_points(self):
         return self.points
