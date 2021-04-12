@@ -17,14 +17,6 @@ class Profile(models.Model):
     five_day_streak = models.BooleanField(default=False)
     seven_day_streak = models.BooleanField(default=False)
 
-    '''
-    def save(self, *args, **kwargs):
-        if not self.id:
-            if self.user.id % 2 == 0:
-                self.group == True
-        super(Profile, self).save(*args, **kwargs)
-    '''
-
     def increment_num_questions(self):
         self.increment_points()
         self.num_questions += 1
@@ -103,8 +95,3 @@ class Question(models.Model):
     choice_c_correct = models.BooleanField(default=False)
     choice_d = models.CharField(max_length=200, default="")
     choice_d_correct = models.BooleanField(default=False)
-
-
-    #def save(self, *args, **kwargs):
-    #    profile = Profile.objects.get(self.user)
-         
