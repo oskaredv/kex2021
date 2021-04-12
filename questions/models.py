@@ -27,17 +27,17 @@ class Profile(models.Model):
             if not self.ten_question : 
                 self.ten_question = True
                 self.increment_num_badges()
-                increment_points_with_argument(500)
+                self.increment_points_with_argument(500)
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
                 self.increment_num_badges()
-                increment_points_with_argument(300)
+                self.increment_points_with_argument(300)
         elif self.num_questions == 1 :
             if not self.first_question :
                 self.first_question = True
                 self.increment_num_badges()
-                increment_points_with_argument(100)
+                self.increment_points_with_argument(100)
 
     def increment_points(self):
         self.previous_points = self.points
