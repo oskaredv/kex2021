@@ -35,17 +35,17 @@ class Profile(models.Model):
             if not self.ten_question : 
                 self.ten_question = True
                 self.increment_num_badges()
-                self.increment_points(500)
+                increment_points_with_argument(500)
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
                 self.increment_num_badges()
-                self.increment_points(300)
+                increment_points_with_argument(300)
         elif self.num_questions == 1 :
             if not self.first_question :
                 self.first_question = True
                 self.increment_num_badges()
-                self.increment_points(100)
+                increment_points_with_argument(100)
 
     def increment_points(self):
         self.previous_points = self.points
@@ -54,7 +54,7 @@ class Profile(models.Model):
         else:    
             self.points += 100 * (0.9 + (self.streak/10))
 
-    def increment_points(self, points):
+    def increment_points_with_argument(self, points):
         self.previous_points = self.points
         self.points += points
     
@@ -67,17 +67,17 @@ class Profile(models.Model):
             if not seven_day_streak : 
                 seven_day_streak = True
                 self.increment_num_badges()
-                self.increment_points(600)
+                self.increment_points_with_argument(600)
         elif self.streak == 5 :
             if not self.five_day_streak :
                 self.five_day_streak = True
                 self.increment_num_badges()
-                self.increment_points(400)
+                self.increment_points_with_argument(400)
         elif self.streak == 3 :
             if not self.three_day_streak :
                 self.three_day_streak = True
                 self.increment_num_badges()
-                self.increment_points(200)
+                self.increment_points_with_argument(200)
 
     def get_group(self):
         return self.group
