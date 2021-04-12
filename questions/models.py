@@ -24,8 +24,8 @@ class Profile(models.Model):
         
     def check_question_badges(self):
         if self.num_questions == 10 :
-            if not self.ten_question : 
-                self.ten_question = True
+            if not self.ten_questions : 
+                self.ten_questions = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(500)
         elif self.num_questions == 5 :
