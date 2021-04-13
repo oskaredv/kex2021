@@ -71,7 +71,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)''' 
         
-              
+    '''          
     def get_success_message(self, cleaned_data):
         profile = Profile.objects.get(user=self.object.user)
         gained_points = profile.points - profile.previous_points
@@ -79,7 +79,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
             return "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points"
         else: 
             return "Your question was successfully added!"
-
+'''
 
     def form_valid(self, form):
         form.instance.user = self.request.user
