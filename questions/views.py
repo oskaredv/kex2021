@@ -46,9 +46,9 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         profile = Profile.objects.get(user = request.user)
         gained_points = profile.points - profile.previous_points
         if profile.group:
-                messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
-            else:
-                messages.success(request, "Your question was successfully added!")
+            messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
+        else:
+            messages.success(request, "Your question was successfully added!")
         return HttpResponseRedirect(reverse_lazy('createquestion'))
         
         '''post_data = request.POST or None
