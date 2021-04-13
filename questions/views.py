@@ -34,7 +34,7 @@ class LeaderboardView(LoginRequiredMixin,ListView):
         profiles = profiles.order_by("-points")[:10]
         return profiles
 
-class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMixin, CreateView):
     model = Question
     form_class = CreateQuestionForm
     success_url = reverse_lazy('createquestion')
