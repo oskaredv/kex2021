@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+ssfrom django.contrib.auth.models import User
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from .models import Question, Profile
@@ -11,11 +11,7 @@ def create_user_profile(sender, instance, **kwargs):
         grp = False
         if (instance.id % 2 == 0):
             grp = True
-        Profile.objects.create(user=instance, group=grp)
-
-'''@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()'''   
+        Profile.objects.create(user=instance, group=grp)  
 
 @receiver(pre_save, sender=Question)
 def update_streak(sender, instance, **kwargs):
@@ -24,7 +20,6 @@ def update_streak(sender, instance, **kwargs):
         questions = Question.objects.filter(user=instance.user).order_by('-pub_date')
         if questions.exists():
             delta = (datetime.date.today() - questions.first().pub_date).days
-            #delta = (datetime.now().date() - questions.first().pub_date.date()).days
             if delta == 1:
                 profile.increment_streak()
             elif delta > 1:
