@@ -14,9 +14,10 @@ Write a question
   {{ form.as_p }}
   <button type="submit">Submit Question</button>
 </form>
-{% include questions.messages.html%}
 {% endblock %}
-
+<div>
+  {% include questions.messages.html%}
+</div>
 
 <script>
   setTimeout(function(){
