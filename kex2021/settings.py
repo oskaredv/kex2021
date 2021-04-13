@@ -140,3 +140,13 @@ LOGOUT_REDIRECT_URL = 'home'
 # Should be at the bottom of this file
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    message.DEBUG: 'alert-info',
+    message.INFO: 'alert-info',
+    message.SUCCESS: 'alert-success',
+    message.WARNING: 'alert-warning',
+    message.ERROR: 'alert-danger',
+}

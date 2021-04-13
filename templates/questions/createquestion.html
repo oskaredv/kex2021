@@ -15,3 +15,12 @@ Write a question
   <button type="submit">Submit Question</button>
 </form>
 {% endblock %}
+{% include questions.messages.html%}
+
+<script>
+  setTimeout(function(){
+    if($('#msg').length>0){
+      $('#msg').remove;
+    }
+  },6000)
+</script>
