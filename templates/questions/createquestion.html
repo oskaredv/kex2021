@@ -15,21 +15,19 @@ Write a question
   <button type="submit">Submit Question</button>
 </form>
 {%if messages%}
-    {%for message in messages%}
         <div class= "alert {{message.tags}} m-2" id ="msg" role="alert">
-            {{message}}
-        </div>
-    {%endfor%}
+            {{messages.first}}
+            <script>
+              setTimeout(function(){
+                if($('#msg').length>0){
+                  $('#msg').remove;
+                }
+              },6000)
+            </script>
+        </div>   
 {%endif%}
 {% endblock %}
 <div>
   <!--{% include questions.messages.html%}-->
 </div>
 
-<script>
-  setTimeout(function(){
-    if($('#msg').length>0){
-      $('#msg').remove;
-    }
-  },6000)
-</script>
