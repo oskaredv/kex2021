@@ -42,21 +42,24 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'questions/createquestion.html'
 
     def post(self, request):
-
-        post_data = request.POST or None
-        file_data = request.FILES or None
+        super(QuestionCreateView, self).post(request)
+        profile = Profile.objects.get(user = request.user)
+        gained_points = profile.points - profile.previous_points
+        if profile.group:
+                messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
+            else:
+                messages.success(request, "Your question was successfully added!")
+        return HttpResponseRedirect(reverse_lazy('createquestion'))
+        
+        '''post_data = request.POST or None
+        #file_data = request.FILES or None
 
         question_form = CreateQuestionForm(post_data, instance = request.user)
 
         if question_form.is_valid():
             question_form.save()
-            profile = Profile.objects.get(user = request.user)
-            gained_points = profile.points - profile.previous_points
-            if profile.group:
-                messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
-            else:
-                messages.success(request, "Your question was successfully added!")
-            return HttpResponseRedirect(reverse_lazy('createquestion'))
+            
+            
 
         context = self.get_context_data(question_form=question_form)
 
@@ -64,7 +67,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 
     def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs) 
+        return self.post(request, *args, **kwargs)''' 
         
               
     def get_success_message(self, cleaned_data):
