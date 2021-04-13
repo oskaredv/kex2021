@@ -37,7 +37,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Question
     form_class = CreateQuestionForm
     success_url = reverse_lazy('createquestion')
-    #success_message = "Your question was successfully added! %(gamification_message)"
+    success_message = "Testing"
     #success_message = "Your question was successfully added!"
     template_name = 'questions/createquestion.html'
 
