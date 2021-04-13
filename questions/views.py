@@ -10,6 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CreateQuestionForm
 from django.views.generic.list import ListView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 class ProfileView(LoginRequiredMixin,DetailView):
     model = Profile
