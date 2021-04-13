@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-
+<html>
 <link rel="stylesheet" type="text/css" href="{% static 'questions/static/questions/login.css' %}">
-
+<body>
 {% block title %}
 Write a question
 {% endblock %}
@@ -21,15 +21,16 @@ Write a question
         </div> 
   {%endfor%}  
 {%endif%}
+{% endblock %}
 <script>
   setTimeout(function(){
     if($('#msg').length>0){
       $('#msg').remove;
     }
-  },6)
+  },5000)
 </script>
-{% endblock %}
 <div>
   <!--{% include questions.messages.html%}-->
 </div>
-
+</body>
+</html>
