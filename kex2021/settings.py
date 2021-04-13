@@ -144,9 +144,9 @@ django_heroku.settings(locals())
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {
-    message.DEBUG: 'alert-info',
-    message.INFO: 'alert-info',
-    message.SUCCESS: 'alert-success',
-    message.WARNING: 'alert-warning',
-    message.ERROR: 'alert-danger',
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
 }
