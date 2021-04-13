@@ -11,6 +11,7 @@ from .forms import CreateQuestionForm
 from django.views.generic.list import ListView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from .mixins import DedupMessageMixin
 
 class ProfileView(LoginRequiredMixin,DetailView):
     model = Profile
