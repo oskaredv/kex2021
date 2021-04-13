@@ -23,7 +23,7 @@ def update_streak(sender, instance, **kwargs):
     if kwargs.get('created', True):
         questions = Question.objects.filter(user=instance.user).order_by('-pub_date')
         if questions.exists():
-            delta = (datetime.date.today() - questqions.first().pub_date).days
+            delta = (datetime.date.today() - questions.first().pub_date).days
             #delta = (datetime.now().date() - questions.first().pub_date.date()).days
             if delta == 1:
                 profile.increment_streak()
