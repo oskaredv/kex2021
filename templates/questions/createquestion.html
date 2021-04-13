@@ -15,8 +15,9 @@ Write a question
   <button type="submit">Submit Question</button>
 </form>
 {%if messages%}
+  {%for message in messages%}
         <div class= "alert {{message.tags}} m-2" id ="msg" role="alert">
-            {{messages.0}}
+            {{message}}
             <script>
               setTimeout(function(){
                 if($('#msg').length>0){
@@ -24,7 +25,8 @@ Write a question
                 }
               },6000)
             </script>
-        </div>   
+        </div> 
+  {%endfor%}  
 {%endif%}
 {% endblock %}
 <div>
