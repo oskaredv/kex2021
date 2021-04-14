@@ -13,42 +13,43 @@ Here's your profile
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
         {% if user|has_gamification %}
             <p><strong>Points: </strong>{{profile.points}} </p>
-            <p><strong>First question badge: </strong></p>
+            <p><strong>First question badge: </strong>
                 {% if profile.first_question %} 
                     <img src="{% static 'questions/images/Badge_1.png' %}" alt="first question">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_1_black.png' %}" alt="first question black">
                 {%endif%}
-            <p><strong>Five questions badge: </strong> </p>
+            <strong>Five questions badge: </strong> 
                 {% if profile.five_questions %} 
                     <img src="{% static 'questions/images/Badge_2.png' %}" alt="five questions">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_2_black.png' %}" alt="five questions black">
                 {%endif%}
-            <p><strong>Ten questions badge: </strong> </p>
+            <strong>Ten questions badge: </strong> 
                 {% if profile.ten_questions %} 
                     <img src="{% static 'questions/images/Badge_3.png' %}" alt="ten questions">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_3_black.png' %}" alt="ten questions black">
                 {%endif%}
-            <p><strong>Three day streak badge: </strong> </p>
+            <strong>Three day streak badge: </strong> 
                 {% if profile.three_day_streak %} 
                     <img src="{% static 'questions/images/Badge_4.png' %}" alt="three day streak">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_4_black.png' %}" alt="three day streak black">
                 {%endif%}
-            <p><strong>Five day streak badge: </strong> </p>
+            <strong>Five day streak badge: </strong> 
                 {% if profile.five_day_streak %} 
                     <img src="{% static 'questions/images/Badge_5.png' %}" alt="five day streak">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_5_black.png' %}" alt="five day streak black">
                 {%endif%}
-            <p><strong>Seven day streak badge: </strong> </p>
+            <strong>Seven day streak badge: </strong> 
                 {% if profile.seven_day_streak %} 
                     <img src="{% static 'questions/images/Badge_6.png' %}" alt="seven day streak">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_6_black.png' %}" alt="seven day streak black">
                 {%endif%}
+            </p>
         {% endif %}          
     </p>
 </div> 
