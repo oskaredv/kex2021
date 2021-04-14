@@ -14,15 +14,6 @@ Write a question
   {{ form.as_p }}
   <button type="submit">Submit Question</button>
 </form>
-{%if messages%}
-  {%for message in messages%}
-        <!--<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>-->
-
-        <div class= "alert {{message.tags}} m-2" id ="msg" role="alert">
-            {{message}}
-        </div> 
-  {%endfor%}  
-{%endif%}
 {% endblock %}
 <div>
   <!--{% include questions.messages.html%}-->
