@@ -6,26 +6,27 @@ Leaderboard
 {% endblock %}
 
 {%block content%}
-<div class = "content">
-<h1>Leaderboard</h1>
-<ol>
-    <!-- Iterate over object_list -->
-    {% for profile in profile_list %}
-    <!-- Display Objects -->
-    <li>{{ profile.user.username }} - {{ profile.points }}</li>
+<div class ="content">
+    <h1>Leaderboard</h1>
+    <ol>
+        <!-- Iterate over object_list -->
+        {% for profile in profile_list %}
+        <!-- Display Objects -->
+        <li>{{ profile.user.username }} - {{ profile.points }}</li>
 
-    <hr/>
-    <!-- If objet_list is empty  -->
-    {% empty %}
-    <li>No objects yet.</li>
-    {% endfor %}
-</ol>
+        <hr/>
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No objects yet.</li>
+        {% endfor %}
+    </ol>
 </div>
 {% endblock %}
 
 <style>
     .content {
-      max-width: 960px;
-      margin: auto;
+      /*max-width: 960px;*/
+      margin-top: 20px;
+      margin-left: 80px;
     }
 </style>
