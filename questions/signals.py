@@ -34,6 +34,5 @@ def update_profile(sender, instance, **kwargs):
     profile = Profile.objects.get(user = instance.user)   
     if kwargs.get('created', True):
         profile.increment_num_questions()
-        messages.success(request, "test")
     profile.save()
        
