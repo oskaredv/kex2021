@@ -50,7 +50,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
             messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
         else:
             messages.success(request, "Your question was successfully added!")
-        return HttpResponseRedirect(reverse_lazy('createquestion'))
+        return HttpResponseRedirect(success_url)
         
         '''post_data = request.POST or None
         #file_data = request.FILES or None
