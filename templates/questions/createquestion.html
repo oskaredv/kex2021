@@ -23,6 +23,10 @@ Write a question
         </div> 
   {%endfor%}  
 {%endif%}
+{% endblock %}
+<div>
+  <!--{% include questions.messages.html%}-->
+</div>
 <script>
   setTimeout(function(){
     //if($('msg').length>0){
@@ -30,9 +34,5 @@ Write a question
     //}
   },2000);
 </script>
-{% endblock %}
-<div>
-  <!--{% include questions.messages.html%}-->
-</div>
 </body>
 </html>
