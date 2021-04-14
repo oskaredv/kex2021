@@ -21,12 +21,14 @@ Here's your profile
                     <img src="{% static 'questions/images/Badge_1_black.png' %}" alt="first question black">
                 {%endif%}
             </div>
+            <div class ="txtimg">
                 <strong>Five questions badge: </strong> 
                 {% if profile.five_questions %} 
                     <img src="{% static 'questions/images/Badge_2.png' %}" alt="five questions">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_2_black.png' %}" alt="five questions black">
                 {%endif%}
+            </div>
             <div class ="txtimg">
                 <strong>Ten questions badge: </strong> 
                 {% if profile.ten_questions %} 
@@ -36,7 +38,7 @@ Here's your profile
                 {%endif%}
             </div>
             <br>
-            <div class ="txtimg"v>
+            <div class ="txtimg">
             <strong>Three day streak badge: </strong> 
                 {% if profile.three_day_streak %} 
                     <img src="{% static 'questions/images/Badge_4.png' %}" alt="three day streak">
