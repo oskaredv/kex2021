@@ -14,7 +14,7 @@ Here's your profile
         {% if user|has_gamification %}
             <p><strong>Points: </strong>{{profile.points}} </p>
             <p><strong>First question badge: </strong></p>
-                {% if {{profile.first_question}}%} 
+                {% if {profile.first_question} %} 
                     <img src="{% static 'questions/images/Badge_1.png' %}" alt="first question">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_1_black.png' %}" alt="first question black">
