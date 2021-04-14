@@ -38,7 +38,7 @@ class LeaderboardView(LoginRequiredMixin,ListView):
 class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMixin, CreateView):
     model = Question
     form_class = CreateQuestionForm
-    success_url = reverse_lazy('createquestion')
+    success_url = 'home'
     #success_message = "Your question was successfully added!"
     template_name = 'questions/createquestion.html'
 
