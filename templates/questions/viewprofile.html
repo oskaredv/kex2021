@@ -8,14 +8,16 @@ Here's your profile
 <div class="content">
     <h1>{{user.username}}'s profile</h1>
     <p>            
-        <p><strong>Points: </strong>{{profile.points}} </p>
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
-        <p><strong>First question badge: </strong>{{profile.first_question}} </p>
-        <p><strong>Five questions badge: </strong>{{profile.five_questions}} </p>
-        <p><strong>Ten questions badge: </strong>{{profile.ten_questions}} </p>
-        <p><strong>Three day streak badge: </strong>{{profile.three_day_streak}} </p>
-        <p><strong>Five day streak badge: </strong>{{profile.five_day_streak}} </p>
-        <p><strong>Seven day streak badge: </strong>{{profile.seven_day_streak}} </p>          
+        {% if user|has_gamification %}
+            <p><strong>Points: </strong>{{profile.points}} </p>
+            <p><strong>First question badge: </strong>{{profile.first_question}} </p>
+            <p><strong>Five questions badge: </strong>{{profile.five_questions}} </p>
+            <p><strong>Ten questions badge: </strong>{{profile.ten_questions}} </p>
+            <p><strong>Three day streak badge: </strong>{{profile.three_day_streak}} </p>
+            <p><strong>Five day streak badge: </strong>{{profile.five_day_streak}} </p>
+            <p><strong>Seven day streak badge: </strong>{{profile.seven_day_streak}} </p>
+        {% endif %}          
     </p>
 </div> 
 
