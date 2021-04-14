@@ -16,11 +16,11 @@ Write a question
 </form>
 {%if messages%}
   {%for message in messages%}
-        <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>
+        <!--<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>-->
 
-        <!--<div class= "alert {{message.tags}} m-2" id ="msg" role="alert">
+        <div class= "alert {{message.tags}} m-2" id ="msg" role="alert">
             {{message}}
-        </div> -->
+        </div> 
   {%endfor%}  
 {%endif%}
 <script>
@@ -28,7 +28,7 @@ Write a question
     if($('#msg').length>0){
       $('#msg').remove();
     }
-  },5)
+  },2000);
 </script>
 {% endblock %}
 <div>
