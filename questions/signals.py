@@ -3,6 +3,7 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from .models import Question, Profile
 import datetime 
+from django.contrib import messages
 
 
 @receiver(post_save, sender=User)
@@ -33,5 +34,6 @@ def update_profile(sender, instance, **kwargs):
     profile = Profile.objects.get(user = instance.user)   
     if kwargs.get('created', True):
         profile.increment_num_questions()
+        messages.success("test")
     profile.save()
        
