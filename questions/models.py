@@ -13,9 +13,9 @@ class Profile(models.Model):
     first_question = models.BooleanField(default=False)
     five_questions = models.BooleanField(default=False)
     ten_questions = models.BooleanField(default=False)
+    two_day_streak = models.BooleanField(default=False)
     three_day_streak = models.BooleanField(default=False)
-    five_day_streak = models.BooleanField(default=False)
-    seven_day_streak = models.BooleanField(default=False)
+    four_day_streak = models.BooleanField(default=False)
 
     def increment_num_questions(self):
         self.increment_points()
@@ -55,19 +55,19 @@ class Profile(models.Model):
         self.check_streak_badges()
 
     def check_streak_badges(self):
-        if self.streak == 7 :
-            if not seven_day_streak : 
-                seven_day_streak = True
+        if self.streak == 4 :
+            if not four_day_streak : 
+                four_day_streak = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(600)
-        elif self.streak == 5 :
-            if not self.five_day_streak :
-                self.five_day_streak = True
+        elif self.streak == 3 :
+            if not self.two_day_streak :
+                self.two_day_streak = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(400)
-        elif self.streak == 3 :
-            if not self.three_day_streak :
-                self.three_day_streak = True
+        elif self.streak == 2 :
+            if not self.two_day_streak :
+                self.two_day_streak = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(200)
 
@@ -82,6 +82,9 @@ class Profile(models.Model):
 
     def increment_num_badges(self):
         self.num_badges += 1
+
+    def get_badges(self):
+        badges = [self.first_question, self.five_questions, self.ten_questions, self.two_day_streak, self.three_day_streak, self.four_day_streak]
       
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

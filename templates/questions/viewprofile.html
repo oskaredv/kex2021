@@ -39,27 +39,27 @@ Here's your profile
             </div>
             <br>
             <div class ="txtimg">
+            <strong>Two day streak badge: </strong> 
+                {% if profile.two_day_streak %} 
+                    <img src="{% static 'questions/images/Badge_4.png' %}" alt="two day streak">
+                {% else %}
+                    <img src="{% static 'questions/images/Badge_4_black.png' %}" alt="two day streak black">
+                {%endif%}
+            </div>
+            <div class ="txtimg">
             <strong>Three day streak badge: </strong> 
                 {% if profile.three_day_streak %} 
-                    <img src="{% static 'questions/images/Badge_4.png' %}" alt="three day streak">
+                    <img src="{% static 'questions/images/Badge_5.png' %}" alt="three day streak">
                 {% else %}
-                    <img src="{% static 'questions/images/Badge_4_black.png' %}" alt="three day streak black">
+                    <img src="{% static 'questions/images/Badge_5_black.png' %}" alt="three day streak black">
                 {%endif%}
             </div>
             <div class ="txtimg">
-            <strong>Five day streak badge: </strong> 
-                {% if profile.five_day_streak %} 
-                    <img src="{% static 'questions/images/Badge_5.png' %}" alt="five day streak">
+            <strong>Four day streak badge: </strong> 
+                {% if profile.four_day_streak %} 
+                    <img src="{% static 'questions/images/Badge_6.png' %}" alt="four day streak">
                 {% else %}
-                    <img src="{% static 'questions/images/Badge_5_black.png' %}" alt="five day streak black">
-                {%endif%}
-            </div>
-            <div class ="txtimg">
-            <strong>Seven day streak badge: </strong> 
-                {% if profile.seven_day_streak %} 
-                    <img src="{% static 'questions/images/Badge_6.png' %}" alt="seven day streak">
-                {% else %}
-                    <img src="{% static 'questions/images/Badge_6_black.png' %}" alt="seven day streak black">
+                    <img src="{% static 'questions/images/Badge_6_black.png' %}" alt="four day streak black">
                 {%endif%}
             </div>
         {% endif %}          
