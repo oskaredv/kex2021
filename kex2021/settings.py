@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'questions.apps.QuestionsConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

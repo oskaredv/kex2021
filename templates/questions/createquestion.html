@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
 {% load static %}
 <html>
 <link rel="stylesheet" type="text/css" href="{% static 'questions/static/questions/login.css' %}">
@@ -9,11 +11,16 @@ Write a question
 
 {% block content %}
 <h2>Write a question:</h2>
-<form method="post">
+
+<form method="post" class="uniForm">
+    {{ form|crispy }}
+</form>
+<button type="submit">Submit Question</button>
+<!--<form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Submit Question</button>
-</form>
+</form>-->
 {% endblock %}
 <div>
   <!--{% include questions.messages.html%}-->
