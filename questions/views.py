@@ -38,7 +38,6 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
     def post(self, request):
         profile = Profile.objects.get(user = request.user)
         badges_before = profile.get_badges()
-        messages.success(request, "hello")
         super(QuestionCreateView, self).post(request)
         badges_after = profile.get_badges()
         gained_points = profile.points - profile.previous_points
