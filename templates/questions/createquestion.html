@@ -15,15 +15,15 @@ Write a question
 
 <form method="post" class="uniForm">
     {% csrf_token %}
-    <textarea name="questiontext" id="questiontext" cols="20" rows="5">
-      {{form.question_text|as_crispy_field}}
+    <textarea name="question_text" id="question_text" cols="20" rows="5">
+      
     </textarea>
 
     <div class="form-row">
       <div class="form-group col-md-6 mb-0">
         {{ form.choice_a|as_crispy_field }}
       </div>
-      <div class="form-group col-md-4 mb-0">
+      <div class="form-group col-md-6 mb-0">
         {{ form.choice_a_correct|as_crispy_field }}
       </div>
     </div>
@@ -32,7 +32,7 @@ Write a question
       <div class="form-group col-md-6 mb-0">
         {{ form.choice_b|as_crispy_field }}
       </div>
-      <div class="form-group col-md-4 mb-0">
+      <div class="form-group col-md-6 mb-0">
         {{ form.choice_b_correct|as_crispy_field }}
       </div>
     </div>
