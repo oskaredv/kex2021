@@ -44,9 +44,9 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
         if profile.group:
             messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
             for index in range (6):
-                messages.success(request, "testing, index: " + str(index))
-                if badges_after[index] != badges_before[index]:
-                    messages.success(request, "You recieved a badge! Check it out in your profile")
+                #messages.success(request, "testing, index: " + str(index))
+                if badges_after[index] == badges_before[index]:
+                    messages.success(request, "You recieved a badge! Check it out in your profile" + str(badges_before[index]) + str(badges_after[index]))
         else:
             messages.success(request, "Your question was successfully added!")
         return HttpResponseRedirect(reverse_lazy('home'))
