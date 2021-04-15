@@ -16,7 +16,7 @@ Write a question
 <form method="post" class="uniForm">
     {% csrf_token %}
     <textarea name="questiontext" id="questiontext" cols="20" rows="5">
-      {{form.questiontext|as_crispy_field}}
+      {{form.question_text|as_crispy_field}}
     </textarea>
 
     <div class="form-row">
