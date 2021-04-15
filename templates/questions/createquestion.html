@@ -12,9 +12,49 @@ Write a question
 {% block content %}
 <h2>Write a question:</h2>
 
+
 <form method="post" class="uniForm">
     {% csrf_token %}
-    {{ form|crispy }}
+    <textarea name="questiontext" id="questiontext" cols="20" rows="5">
+      {{form.questiontext|as_crispy_field}}
+    </textarea>
+
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.choice_a|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.choice_a_correct|as_crispy_field }}
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.choice_b|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.choice_b_correct|as_crispy_field }}
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.choice_c|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.choice_c_correct|as_crispy_field }}
+      </div>
+    </div> 
+
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.choice_d|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.choice_d_correct|as_crispy_field }}
+      </div>
+    </div> 
+
     <button type="submit" class="btn btn-primary">Submit Question</button>
 </form>
 
