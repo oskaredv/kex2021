@@ -84,7 +84,7 @@ class Profile(models.Model):
         self.num_badges += 1
 
     def get_badges(self):
-        badges = [self.first_question, self.five_questions, self.ten_questions, self.two_day_streak, self.three_day_streak, self.four_day_streak]
+        return [self.first_question, self.five_questions, self.ten_questions, self.two_day_streak, self.three_day_streak, self.four_day_streak]
       
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
