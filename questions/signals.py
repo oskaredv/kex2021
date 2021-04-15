@@ -29,7 +29,7 @@ def update_streak(sender, instance, **kwargs):
             profile.streak = 1
     profile.save()
 
-@receiver(post_save, sender=Question)
+@receiver(pre_save, sender=Question)
 def update_profile(sender, instance, **kwargs):
     profile = Profile.objects.get(user = instance.user)   
     if kwargs.get('created', True):
