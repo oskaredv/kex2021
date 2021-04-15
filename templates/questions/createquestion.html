@@ -13,6 +13,7 @@ Write a question
 <h2>Write a question:</h2>
 
 <form method="post" class="uniForm">
+    {% csrf_token %}
     {{ form|crispy }}
     <button type="submit" class="btn btn-primary">Submit Question</button>
 </form>
