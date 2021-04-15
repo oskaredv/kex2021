@@ -43,6 +43,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
     template_name = 'questions/createquestion.html'
 
     def post(self, request):
+        messages.success(request, "hello")
         super(QuestionCreateView, self).post(request)
         profile = Profile.objects.get(user = request.user)
         gained_points = profile.points - profile.previous_points
