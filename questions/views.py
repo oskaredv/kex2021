@@ -42,8 +42,9 @@ class QuestionCreateView(SuccessMessageMixin,LoginRequiredMixin, DedupMessageMix
         badge_message = ""
         if profile.group:
             if profile.just_gainded_badge:
-                badge_message = "You also gained a badge, check it out in your profile!"
-            return "You gained " + str(gained_points) + " points!" +"\n"+ badge_message
+                gained_points += 100
+                badge_message = "You also recieved a badge which gave you some additional points, check it out in your profile!"
+            return "You gained " + str(gained_points) + " points for submitting this question!" +"\n"+ badge_message
         else: 
             return "Your question was successfully added!"
 
