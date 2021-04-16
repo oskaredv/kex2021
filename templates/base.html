@@ -68,6 +68,7 @@ footer {
         {% endif %}
       {% endif %}
       <div class="topnav-right">
+        <a href="{% url 'about' %}">About</a>
         <a href="{% url 'logout' %}">Log out</a>
       </div>
     </div>
@@ -85,7 +86,8 @@ footer {
   </script>
 </body>
 <footer class="footer">
-  <p>Author: Hege Refsnes<br>
-  <a href="mailto:hege@example.com">hege@example.com</a></p>
+  <p>Creators of this system:<br>
+    Marcus Nordstedt <a href="mailto:mnordste@kth.se">mnordste@kth.se</a> <br>
+    Oskar Edvardsson <a href="mailto:oskaredv@kth.se">oskaredv@kth.se</a>
 </footer>
 </html>

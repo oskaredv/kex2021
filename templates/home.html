@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load templatetagname %}
 {% block title %}Home{% endblock %}
 <style>
   body{
@@ -19,21 +19,51 @@
     margin: 100px;
   }
   
+  p.ex1 {
+  font-size: 30px;
+  }
+  .infotext{
+    color:green;
+  }
 </style>
 
 {% block content %}
 
 <div class = "container">
 {% if user.is_authenticated %}
-  <p>Hi {{ user.username }}! userID: {{user.id}}</p>
+  <h2>Hi {{ user.username }}! </h2>
+  <br>
+  <div class="infotext">
+  {% if user|has_gamification %}
+  <p>
+    By submitting questions you will gain points and if you submit questions several days in a row you will get a streak. 
+    While having a streak you will get more points for submitting questions. 
+    You can also get badges for submitting certain amounts of questions or getting a certain day streak. 
+    For more information on how to obtain a particular badge see the profile page.</p>
+  
+  {%else %}
+    <p>
+      You have no features
+    </p>
+    {%endif%}
   <p><a href="{% url 'createquestion' %}" class="btn btn-primary btn-lg">Write a question</a></p>
   <style>.btn-primary{border-radius: 25px;}</style>
-
+</div>
 
 {% else %}
-  <p>You are not logged in</p>
+  <h2>You are not logged in</h2>
+  <div>
+    <p>
+      Welcome to our degree project study! The study will consist of you using our system to submit quiz questions about introductory computer science, for TIME. After this time we will send out a survey where you will be asked about your experience with the system. 
+      <br>For more information see the about page.
+      <br><br>If you don't already have an account register below to get started!
+    </p>
+  </div>
   <a href="{% url 'login' %}">Log In</a>
+  <p>
+    <br>
   <a href="{% url 'signup' %}">Create Account</a>
+</p>
 {% endif %}
 </div>
 {% endblock %}
