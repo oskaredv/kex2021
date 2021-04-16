@@ -1,12 +1,35 @@
 {% extends 'base.html' %}
 
-
+<style>
+    .leaderboard{
+    margin: auto;
+    width: 55%;
+    text-align: center;
+    padding: 2em;
+    background: #363636;
+    flex: 1 1 auto;
+}
+.container{
+  margin: auto;
+  width: 55%;
+  text-align: center;
+  padding: 2em;
+  background: #363636;
+  flex: 1 1 auto;
+  /*grow vertically*/
+  }
+  
+h1{
+    color: green;
+    margin: 25px 10px 15px 20px;
+}
+</style>
 {% block title %}
 Leaderboard
 {% endblock %}
 
 {%block content%}
-<div class ="content">
+<div class ="container">
     <h1>Leaderboard</h1>
     <ol class= "leaderboard">
         <!-- Iterate over object_list -->
@@ -23,18 +46,3 @@ Leaderboard
 </div>
 {% endblock %}
 
-<style>
-    .leaderboard{
-    margin: auto;
-    width: 55%;
-    text-align: center;
-    padding: 2em;
-    background: #363636;
-    flex: 1 1 auto;
-}
-  
-h1{
-    color: green;
-    margin: 25px 10px 15px 20px;
-}
-</style>

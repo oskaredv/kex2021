@@ -2,12 +2,32 @@
 {% load static %}
 {% load templatetagname %}
 
+
+<style>
+    .txtimg{
+        display: inline-block;
+        text-align: center;
+    }
+    .txtimg > img{
+        display: block;
+    }</style>
+    <style>
+        .container{
+      margin: auto;
+      width: 55%;
+      text-align: center;
+      padding: 2em;
+      background: #363636;
+      flex: 1 1 auto;
+      /*grow vertically*/
+      }
+    </style>
 {% block title %}
 Here's your profile
 {% endblock %}
 
 {% block content %}
-<div class="content">
+<div class="container">
     <h1>{{user.username}}'s profile</h1>
     <p>            
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
@@ -65,21 +85,4 @@ Here's your profile
         {% endif %}          
     </p>
 </div> 
-
-<style>
-.txtimg{
-    display: inline-block;
-    text-align: center;
-}
-.txtimg > img{
-    display: block;
-}</style>
-<style>
-    .content {
-        /*max-width: 960px;*/
-        margin-top: 20px;
-        margin-left: 80px;
-    }
-</style>
-
 {% endblock %}
