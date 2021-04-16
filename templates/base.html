@@ -30,7 +30,6 @@
   color: black;
 }
 
-
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: #4CAF50;
@@ -40,6 +39,19 @@
 /* Right-aligned section inside the top navigation */
 .topnav-right {
   float: right;
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6em;
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
 }
   </style>
   <link href="{% static 'base.css' %}" rel="stylesheet">
@@ -63,6 +75,7 @@
     {% endblock %}
     {%include 'questions/messages.html' %}
   </main>
+ 
   <script>
     setTimeout(function(){
       if($('#msg').length>0){
@@ -71,4 +84,8 @@
     },2000);
   </script>
 </body>
+<footer class="footer">
+  <p>Author: Hege Refsnes<br>
+  <a href="mailto:hege@example.com">hege@example.com</a></p>
+</footer>
 </html>

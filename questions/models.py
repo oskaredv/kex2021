@@ -16,6 +16,7 @@ class Profile(models.Model):
     two_day_streak = models.BooleanField(default=False)
     three_day_streak = models.BooleanField(default=False)
     four_day_streak = models.BooleanField(default=False)
+    just_gainded_badge = models.BooleanField(default=False)
 
     def increment_num_questions(self):
         self.increment_points()
@@ -26,18 +27,23 @@ class Profile(models.Model):
         if self.num_questions == 10 :
             if not self.ten_questions : 
                 self.ten_questions = True
+                self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(500)
         elif self.num_questions == 5 :
             if not self.five_questions :
                 self.five_questions = True
+                self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(300)
         elif self.num_questions == 1 :
             if not self.first_question :
                 self.first_question = True
+                self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(100)
+        else:
+            self.just_gainded_badge = False
 
     def increment_points(self):
         self.previous_points = self.points
@@ -58,19 +64,30 @@ class Profile(models.Model):
         if self.streak == 4 :
             if not four_day_streak : 
                 four_day_streak = True
+                self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(600)
+            else :
+                self.just_gainded_badge = False
         elif self.streak == 3 :
             if not self.two_day_streak :
                 self.two_day_streak = True
+                self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(400)
+            else :
+                self.just_gainded_badge = False
         elif self.streak == 2 :
             if not self.two_day_streak :
                 self.two_day_streak = True
+                self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(200)
-
+            else :
+                self.just_gainded_badge = False
+        else:
+            self.just_gainded_badge = False
+            
     def get_group(self):
         return self.group
     

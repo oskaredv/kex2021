@@ -29,13 +29,25 @@ class LeaderboardView(LoginRequiredMixin,ListView):
         profiles = profiles.order_by("-points")[:10]
         return profiles
 
-class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMixin, CreateView):
+class QuestionCreateView(SuccessMessageMixin,LoginRequiredMixin, DedupMessageMixin, CreateView):
     model = Question
     form_class = CreateQuestionForm
-    success_url = 'home'
+    success_url = reverse_lazy('home')
     template_name = 'questions/createquestion.html'
 
-    def post(self, request):
+    def get_success_message(self, cleaned_data):
+        #profile = Profile.objects.get(user=self.user)
+        profile = Profile.objects.get(user=self.object.user)
+        gained_points = profile.points - profile.previous_points
+        badge_message = ""
+        if profile.group:
+            if profile.just_gainded_badge:
+                badge_message = "You also gained a badge, check it out in your profile!"
+            return "You gained " + str(gained_points) + " points!" +"\n"+ badge_message
+        else: 
+            return "Your question was successfully added!"
+
+    '''def post(self, request):
         profile = Profile.objects.get(user = request.user)
         badges_before = profile.get_badges()
         super(QuestionCreateView, self).post(request)
@@ -49,7 +61,7 @@ class QuestionCreateView(LoginRequiredMixin, SuccessMessageMixin, DedupMessageMi
                     messages.success(request, "You recieved a badge! Check it out in your profile" + str(badges_before[index]) + str(badges_after[index]))
         else:
             messages.success(request, "Your question was successfully added!")
-        return HttpResponseRedirect(reverse_lazy('home'))
+        return HttpResponseRedirect(reverse_lazy('home'))'''
         
     def form_valid(self, form):
         form.instance.user = self.request.user

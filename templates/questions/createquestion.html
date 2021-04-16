@@ -4,11 +4,26 @@
 {% load static %}
 <html>
 <link rel="stylesheet" type="text/css" href="{% static 'questions/static/questions/login.css' %}">
+<style>
+  .container{
+  padding: 2em;
+  background: #363636;
+  width: 55%;
+  text-align: center;
+  }
+  .center {
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+}
+</style>
 <body>
+
 {% block title %}
 Write a question
 {% endblock %}
 
+<div class = "center">
 {% block content %}
 <h2>Write a question:</h2>
 
@@ -66,9 +81,6 @@ Write a question
   <button type="submit">Submit Question</button>
 </form>-->
 {% endblock %}
-<div>
-  <!--{% include questions.messages.html%}-->
 </div>
-
 </body>
 </html>

@@ -5,16 +5,36 @@
   body{
     margin: 20px;
   }
+
+  .container{
+  margin: auto;
+  width: 55%;
+  text-align: center;
+  padding: 2em;
+  background: #363636;
+  flex: 1 1 auto;
+  /*grow vertically*/
+  }
+  .test{
+    margin: 100px;
+  }
+  
 </style>
+
 {% block content %}
+
+<div class = "container">
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  userID: {{user.id}}
-  <p><a href="{% url 'createquestion' %}">Write a question</a></p>
+  <p>Hi {{ user.username }}! userID: {{user.id}}</p>
+  <p><a href="{% url 'createquestion' %}" class="btn btn-primary btn-lg">Write a question</a></p>
+  <style>.btn-primary{border-radius: 25px;}</style>
+
 
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a>
   <a href="{% url 'signup' %}">Create Account</a>
 {% endif %}
+</div>
 {% endblock %}
+
