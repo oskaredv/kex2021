@@ -6,6 +6,18 @@
 Here's your profile
 {% endblock %}
 
+<style>
+    .content{
+  margin: auto;
+  width: 55%;
+  text-align: center;
+  padding: 2em;
+  background: #363636;
+  flex: 1 1 auto;
+  /*grow vertically*/
+  }
+</style>
+
 {% block content %}
 <div class="content">
     <h1>{{user.username}}'s profile</h1>
