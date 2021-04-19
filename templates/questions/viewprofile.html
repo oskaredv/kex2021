@@ -26,11 +26,15 @@ Here's your profile
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class = container>
+<div class="info">
+    <h1>HEJHEJHEJ</h1>
     <h1>{{user.username}}'s profile</h1>          
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
         {% if user|has_gamification %}
             <p><strong>Points: </strong>{{profile.points}} </p>
+            </div>
+            <div id= "badges">
             <div class ="txtimg">
                 <strong>First question badge: </strong>
                 {% if profile.first_question %} 
@@ -82,4 +86,5 @@ Here's your profile
             </div>
         {% endif %}          
 </div> 
+</div>
 {% endblock %}
