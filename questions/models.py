@@ -105,13 +105,13 @@ class Profile(models.Model):
       
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    question_text = models.CharField(max_length=500)
+    question_text = models.CharField(max_length=1000)
     pub_date = models.DateField(default=datetime.date.today, blank = True)
-    choice_a = models.CharField(max_length=200, default="")
+    choice_a = models.CharField(max_length=500, default="")
     choice_a_correct = models.BooleanField(default=False)
-    choice_b = models.CharField(max_length=200, default="")
+    choice_b = models.CharField(max_length=500, default="")
     choice_b_correct = models.BooleanField(default=False)
-    choice_c = models.CharField(max_length=200, default="")
+    choice_c = models.CharField(max_length=500, default="")
     choice_c_correct = models.BooleanField(default=False)
-    choice_d = models.CharField(max_length=200, default="")
+    choice_d = models.CharField(max_length=500, default="")
     choice_d_correct = models.BooleanField(default=False)

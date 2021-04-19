@@ -5,7 +5,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Row, Div, Layout, Field
 
 class CreateQuestionForm(ModelForm):
-    question_text = forms.CharField(label='questiontext', help_text='This is your question', widget = forms.Textarea)
+    question_text = forms.CharField(label='Question text', help_text='This is your question', widget = forms.Textarea)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
