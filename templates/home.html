@@ -36,14 +36,15 @@
   <div class="infotext">
   {% if user|has_gamification %}
   <p>
-    By submitting questions you will gain points and if you submit questions several days in a row you will get a streak. 
-    While having a streak you will get more points for submitting questions. 
-    You can also get badges for submitting certain amounts of questions or getting a certain day streak. 
+    To start writing questions click the button below. After submitting a question you will 
+    gain points and if you submit questions several days in a row you will get a streak. 
+    While having a streak you will get more points for submitting each question. You can 
+    also get badges for submitting certain amounts of questions or getting a certain day streak.
     For more information on how to obtain a particular badge see the profile page.</p>
   
   {%else %}
     <p>
-      You have no features
+      To start writing questions click the button below.  
     </p>
     {%endif%}
   <p><a href="{% url 'createquestion' %}" class="btn btn-primary btn-lg">Write a question</a></p>
