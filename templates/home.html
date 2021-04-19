@@ -6,10 +6,14 @@
     margin: 20px;
   }
 
+  .page{
+    height: 100%;
+    overflow: hidden;
+    flex: 1 1 auto;
+  }
   .container{
   margin: auto;
   width: 55%;
-  height: 100%;
   text-align: center;
   padding: 2em;
   background: #363636;
@@ -29,7 +33,7 @@
 </style>
 
 {% block content %}
-
+<div class="page">
 <div class = "container">
 {% if user.is_authenticated %}
   <h2>Hi {{ user.username }}! </h2>
@@ -69,5 +73,7 @@
 {% endif %}
 {%include 'questions/messages.html' %}
 </div>
+</div>
 {% endblock %}
+
 
