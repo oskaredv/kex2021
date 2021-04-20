@@ -41,13 +41,35 @@
   <div class="infotext">
   {% if user|has_gamification %}
   <p>
-    To start writing questions click the button below. After submitting a question you will 
-    gain points and if you submit questions several days in a row you will get a streak. 
-    While having a streak you will get more points for submitting each question. You can 
-    also get badges for submitting certain amounts of questions or getting a certain day streak.
-    For more information on how to obtain a particular badge see the profile page.</p>
+    Welcome to our degree project study. 
+    In this study we need your help to test our question-authoring system over the course of one week. 
+    During this week we need you to write and submit at least 5 questions about <u>introductory Computer Science</u>. 
+    These questions will then be reviewed by professors at KTH and potentially used as practice questions in 
+    introductory level courses. We recommend that you try to write one question a day to make the workload easily managed. 
+    The study will end on <u>May 2nd 2021</u>. After that we will send out a survey where you will be asked about your experience with the system.
+  </p>
+
+  <h4>Points and Badges</h4>
+  <ul>
+    <li>As a reward for submitting questions you will earn points</li>
+    <li>If you submit questions several days in a row you will get a streak</li>
+    <li>While having an active streak you will get more points for submitting a question</li>
+    <li>You can also earn badges for submitting certain amounts of questions or for maintaining a streak</li>
+  </ul>
+
+  <p>For more information about points, streaks and badges, see the profile page.</p>
+
+  <p>To start writing questions click the button below. </p>
   
   {%else %}
+  <p>
+    Welcome to our degree project study. 
+    In this study we need your help to test our question-authoring system over the course of one week. 
+    During this week we need you to write and submit at least 5 questions about <u></u>introductory Computer Science</u>. 
+    These questions will then be reviewed by professors at KTH and potentially used as practice questions in 
+    introductory level courses. We recommend that you try to write one question a day to make the workload easily managed. 
+    The study will end on <u>May 2nd 2021</u>. After that we will send out a survey where you will be asked about your experience with the system.
+  </p>
     <p>
       To start writing questions click the button below.  
     </p>
@@ -60,12 +82,18 @@
   <h2>You are not logged in</h2>
   <div>
     <p>
-      Welcome to our degree project study! The study will consist of you using our system to submit quiz questions about introductory computer science, for TIME. After this time we will send out a survey where you will be asked about your experience with the system. 
+      Welcome to our degree project study. 
+      In this study we need your help to test our question-authoring system over the course of one week. 
+      During this week we need you to write and submit at least 5 questions about <u>introductory Computer Science</u>. 
+      These questions will then be reviewed by professors at KTH and potentially used as practice questions in 
+      introductory level courses. We recommend that you try to write one question a day to make the workload easily managed. 
+      The study will end on <u>May 2nd 2021</u>. After that we will send out a survey where you will be asked about your experience with the system.
+
       <br>For more information see the about page.
+      <p><a href="{% url 'login' %}">Log In</a></p>
       <br><br>If you don't already have an account register below to get started!
     </p>
   </div>
-  <a href="{% url 'login' %}">Log In</a>
   <p>
     <br>
   <a href="{% url 'signup' %}">Create Account</a>
