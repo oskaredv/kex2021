@@ -11,23 +11,23 @@ class CreateQuestionForm(ModelForm):
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Row(
-                Field('question_text', wrapper_class= 'col-md-6', css_class = 'row-fluid'),
+                Field('question_text', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
             ),
             Row(
-                Field('choice_a', wrapper_class= 'col-md-6', css_class = 'row-fluid'),
-                Field('choice_a_correct', wrapper_class= 'col-md-6', css_class = 'row-fluid')
+                Field('choice_a', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
+                Field('choice_a_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             ),
             Row(
-                Field('choice_b', wrapper_class= 'col-md-6', css_class = 'row-fluid'),
-                Field('choice_b_correct', wrapper_class= 'col-md-6', css_class = 'row-fluid')
+                Field('choice_b', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
+                Field('choice_b_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             ),
             Row(
-                Field('choice_c', wrapper_class= 'col-md-6', css_class = 'row-fluid'),
-                Field('choice_c_correct', wrapper_class= 'col-md-6', css_class = 'row-fluid')
+                Field('choice_c', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
+                Field('choice_c_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             ),
             Row(
-                Field('choice_d', wrapper_class= 'col-md-6', css_class = 'row-fluid'),
-                Field('choice_d_correct', wrapper_class= 'col-md-6', css_class = 'row-fluid')
+                Field('choice_d', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
+                Field('choice_d_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             )
         )
 
