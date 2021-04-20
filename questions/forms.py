@@ -9,9 +9,7 @@ class CreateQuestionForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.layout = Layout(
-            
-            '''Row(
+        '''Row(
                 Field('choice_a', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
                 Field('choice_a_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             ),
@@ -27,8 +25,9 @@ class CreateQuestionForm(ModelForm):
                 Field('choice_d', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
                 Field('choice_d_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             )'''
+        self.helper.layout = Layout(
             Row(
-                Field('question_text', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
+                Field('question_text', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             ),
             Div(
                 Div('choice_a',css_class='col-xs-4'), 
