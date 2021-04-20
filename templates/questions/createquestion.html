@@ -35,11 +35,11 @@ Write a question
 
 <form method="post" class="uniForm">
     {% csrf_token %}
-    <!---{{ form|crispy }}-->
+    {{ form|crispy }}
     
-    <textarea name="question text" id="textarea" rows="6">
+    <!---<textarea name="question text" id="textarea" rows="6">
       Write your question here
-    </textarea>
+    </textarea>-->
 
     <div class="form-row">
       <div class="form-group col-md-6 mb-0">
