@@ -10,10 +10,8 @@ class CreateQuestionForm(ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
-            Row(
-                Field('question_text', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
-            ),
-            Row(
+            
+            '''Row(
                 Field('choice_a', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
                 Field('choice_a_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
             ),
@@ -28,6 +26,29 @@ class CreateQuestionForm(ModelForm):
             Row(
                 Field('choice_d', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
                 Field('choice_d_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
+            )'''
+            Row(
+                Field('question_text', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
+            ),
+            Div(
+                Div('choice_a',css_class='col-xs-4'), 
+                Div('choice_a_correct',css_class='col-xs-4' ),
+            css_class='row-fluid'
+            ),
+            Div(
+                Div('choice_b',css_class='col-xs-4'), 
+                Div('choice_b_correct',css_class='col-xs-4' ),
+            css_class='row-fluid'
+            ),
+            Div(
+                Div('choice_c',css_class='col-xs-4'), 
+                Div('choice_c_correct',css_class='col-xs-4' ),
+            css_class='row-fluid'
+            ),
+            Div(
+                Div('choice_d',css_class='col-xs-4'), 
+                Div('choice_d_correct',css_class='col-xs-4' ),
+            css_class='row-fluid'
             )
         )
 
