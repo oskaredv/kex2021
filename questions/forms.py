@@ -12,7 +12,7 @@ class CreateQuestionForm(ModelForm):
         self.helper.layout = Layout(
             Row(
                 Field('question_text', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
-            )
+            ))
         '''Row(
                 Field('choice_a', wrapper_class= 'col-xs-6', css_class = 'row-fluid'),
                 Field('choice_a_correct', wrapper_class= 'col-xs-6', css_class = 'row-fluid')
