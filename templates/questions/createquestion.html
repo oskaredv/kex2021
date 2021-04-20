@@ -31,7 +31,7 @@ Write a question
 <form method="post" class="uniForm">
     {% csrf_token %}
     {{ form|crispy }}
-    <!--
+    
     <textarea name="question_text" id="question_text" cols="20" rows="5">
       
     </textarea>
@@ -70,7 +70,7 @@ Write a question
       <div class="form-group col-md-4 mb-0">
         {{ form.choice_d_correct|as_crispy_field }}
       </div>
-    </div> -->
+    </div> 
 
     <button type="submit" class="btn btn-primary">Submit Question</button>
 </form>
