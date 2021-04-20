@@ -31,7 +31,7 @@ Write a question
     {% csrf_token %}
     <!---{{ form|crispy }}-->
     
-    <textarea name="question text" id="question_text" cols="60" rows="6">
+    <textarea name="question text" id="question_text" cols="80" rows="6">
       
     </textarea>
 
@@ -39,7 +39,7 @@ Write a question
       <div class="form-group col-md-6 mb-0">
         {{ form.choice_a|as_crispy_field }}
       </div>
-      <div class="form-group col-md-6 mb-0">
+      <div class='checkbox-inline'>
         {{ form.choice_a_correct|as_crispy_field }}
       </div>
     </div>
