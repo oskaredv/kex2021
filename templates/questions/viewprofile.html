@@ -15,6 +15,7 @@ Here's your profile
 }</style>
 
 {% block content %}
+<div class = "filler">
 <div class ="container">
     <h1>{{user.username}}'s profile</h1>
     <p>Here you can see some basic stats {% if user|has_gamification %} and your hard earned badge collection {% endif %} </p>
@@ -74,7 +75,12 @@ Here's your profile
         {% endif %}          
     </p>
 </div> 
+</div>
 <style>
+
+    .filler{
+        height:100%
+    }
     
     img {
         max-width: 100%;
