@@ -6,34 +6,9 @@
 Here's your profile
 {% endblock %}
 
-<style>
-.container{
-    margin: auto;
-    background: #363636;
-    flex: 1 1 auto;
-    /*grow vertically*/
-}
-img {
-    max-width: 50%;
-    height: auto;
-}
-img.resize {
-  max-width:50%;
-  max-height:50%;
-}
-.txtimg{
-    display: inline-block;
-    text-align: center;
-
-}
-.txtimg > img{
-    display: block;
-    
-}
-</style>
 
 {% block content %}
-<div>
+<div class ="container">
     <h1>{{user.username}}'s profile</h1>
     <p>Here you can see some basic stats and your hard earned badge collection.</p>
     <p>            
@@ -159,5 +134,30 @@ img.resize {
         {% endif %}          
     </p>
 </div> -->
-
+<style>
+    .container{
+        margin: auto;
+        text-align: center;
+        background: #363636;
+        flex: 1 1 auto;
+        /*grow vertically*/
+    }
+    img {
+        max-width: 50%;
+        height: auto;
+    }
+    img.resize {
+      max-width:50%;
+      max-height:50%;
+    }
+    .txtimg{
+        display: inline-block;
+        text-align: center;
+    
+    }
+    .txtimg > img{
+        display: block;
+        
+    }
+    </style>
 {% endblock %}
