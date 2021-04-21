@@ -1,13 +1,28 @@
 <!-- templates/registration/signup.html -->
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
+{% load static %}
+<style>
+.container{
+  margin: auto;
+  width: 55%;
+  text-align: center;
+  padding: 2em;
+  background: #363636;
+  flex: 1 1 auto;
+  /*grow vertically*/
+}
+</style>
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
+<div class="container">
+  <h2>Create an account</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    {{ form|crispy }}
+  <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
+  <style>.btn-primary{border-radius: 25px;}</style>
   </form>
+</div>
 {% endblock %}
