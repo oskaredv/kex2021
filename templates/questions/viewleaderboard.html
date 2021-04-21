@@ -35,13 +35,12 @@ Leaderboard
     <ol class= "leaderboard">
         <!-- Iterate over object_list -->
         {% for profile in profile_list %}
-        <!-- Display Objects -->
-        <li>{{ profile.user.username }} - {{ profile.points }}</li>
-
-        <hr/>
-        <!-- If objet_list is empty  -->
-        {% empty %}
-        <li>No objects yet.</li>
+            <!-- Display Objects -->
+            <li>{{ profile.user.username }} - {{ profile.points }}</li>
+            <hr/>
+            <!-- If objet_list is empty  -->
+            {% empty %}
+            <li>No objects yet.</li>
         {% endfor %}
     </ol>
 </div>

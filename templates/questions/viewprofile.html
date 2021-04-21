@@ -7,19 +7,30 @@ Here's your profile
 {% endblock %}
 
 <style>
-    .content{
-  margin: auto;
-  width: 55%;
-  text-align: center;
-  padding: 2em;
-  background: #363636;
-  flex: 1 1 auto;
-  /*grow vertically*/
-  }
+.container{
+    margin: auto;
+    width: 55%;
+    text-align: center;
+    padding: 2em;
+    background: #363636;
+    flex: 1 1 auto;
+    /*grow vertically*/
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.txtimg{
+    display: inline-block;
+    text-align: center;
+}
+.txtimg > img{
+    display: block;
+}
 </style>
 
 {% block content %}
-<div class="content">
+<div class="container">
     <h1>{{user.username}}'s profile</h1>
     <p>Here you can see some basic stats and your hard earned badge collection.</p>
     <p>            
@@ -78,14 +89,5 @@ Here's your profile
         {% endif %}          
     </p>
 </div> 
-
-<style>
-.txtimg{
-    display: inline-block;
-    text-align: center;
-}
-.txtimg > img{
-    display: block;
-}</style>
 
 {% endblock %}

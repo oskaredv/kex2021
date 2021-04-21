@@ -36,7 +36,6 @@ class QuestionCreateView(SuccessMessageMixin,LoginRequiredMixin, DedupMessageMix
     template_name = 'questions/createquestion.html'
 
     def get_success_message(self, cleaned_data):
-        #profile = Profile.objects.get(user=self.user)
         profile = Profile.objects.get(user=self.object.user)
         gained_points = profile.points - profile.previous_points
         badge_message = ""
@@ -46,22 +45,6 @@ class QuestionCreateView(SuccessMessageMixin,LoginRequiredMixin, DedupMessageMix
             return "You gained " + str(gained_points) + " points for submitting this question!" +"\n"+ badge_message
         else: 
             return "Your question was successfully added!"
-
-    '''def post(self, request):
-        profile = Profile.objects.get(user = request.user)
-        badges_before = profile.get_badges()
-        super(QuestionCreateView, self).post(request)
-        badges_after = profile.get_badges()
-        gained_points = profile.points - profile.previous_points
-        if profile.group:
-            messages.success(request, "Your question was successfully added!" + "\n" + "You gained " + str(gained_points) + " points")
-            for index in range (6):
-                #messages.success(request, "testing, index: " + str(index))
-                if badges_after[index] == badges_before[index]:
-                    messages.success(request, "You recieved a badge! Check it out in your profile" + str(badges_before[index]) + str(badges_after[index]))
-        else:
-            messages.success(request, "Your question was successfully added!")
-        return HttpResponseRedirect(reverse_lazy('home'))'''
         
     def form_valid(self, form):
         form.instance.user = self.request.user
