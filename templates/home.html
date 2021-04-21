@@ -90,13 +90,14 @@
       The study will end on <b><u>May 2nd 2021</u></b>. After that we will send out a survey where you will be asked about your experience with the system.
 
       <br>For more information see the about page.
-      <p><a href="{% url 'login' %}">Log In</a></p>
+      <p><a href="{% url 'login' %}"class="btn btn-primary btn-lg">Log In</a></p>
+      <style>.btn-primary{border-radius: 25px;}</style>
       <br>If you don't already have an account register below to get started!
     </p>
   </div>
-  <p>
     <br>
-  <a href="{% url 'signup' %}">Create Account</a>
+  <p><a href="{% url 'signup' %}"class="btn btn-primary btn-lg">Create Account</a></p>
+  <style>.btn-primary{border-radius: 25px;}</style>
 </p>
 {% endif %}
 {%include 'questions/messages.html' %}
