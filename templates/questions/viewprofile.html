@@ -10,7 +10,7 @@ Here's your profile
 {% block content %}
 <div class ="container">
     <h1>{{user.username}}'s profile</h1>
-    <p>Here you can see some basic stats and your hard earned badge collection.</p>
+    <p>Here you can see some basic stats {% if user|has_gamification %} and your hard earned badge collection {% endif %} </p>
     <p>            
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
         {% if user|has_gamification %}
@@ -138,7 +138,8 @@ Here's your profile
     .container{
         margin: auto;
         text-align: center;
-        background: #363636;
+        padding: 2em;
+        width: 55%;
         flex: 1 1 auto;
         /*grow vertically*/
     }
