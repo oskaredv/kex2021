@@ -23,9 +23,13 @@ img {
 .txtimg{
     display: inline-block;
     text-align: center;
+    max-width: 100%;
+    height: auto;
 }
 .txtimg > img{
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 </style>
 
@@ -37,6 +41,7 @@ img {
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
         {% if user|has_gamification %}
             <p><strong>Points: </strong>{{profile.points}} </p>
+
             <div class ="txtimg">
                 <strong>First question badge: </strong>
                 {% if profile.first_question %} 
@@ -45,6 +50,7 @@ img {
                     <img src="{% static 'questions/images/Badge_1_black.png' %}" alt="first question black">
                 {%endif%}
             </div>
+
             <div class ="txtimg">
                 <strong>Five questions badge: </strong> 
                 {% if profile.five_questions %} 
@@ -53,6 +59,7 @@ img {
                     <img src="{% static 'questions/images/Badge_2_black.png' %}" alt="five questions black">
                 {%endif%}
             </div>
+
             <div class ="txtimg">
                 <strong>Ten questions badge: </strong> 
                 {% if profile.ten_questions %} 
@@ -61,7 +68,9 @@ img {
                     <img src="{% static 'questions/images/Badge_3_black.png' %}" alt="ten questions black">
                 {%endif%}
             </div>
+
             <br>
+
             <div class ="txtimg">
             <strong>Two day streak badge: </strong> 
                 {% if profile.three_day_streak %} 
@@ -70,6 +79,7 @@ img {
                     <img src="{% static 'questions/images/Badge_4_black.png' %}" alt="three day streak black">
                 {%endif%}
             </div>
+
             <div class ="txtimg">
             <strong>Three day streak badge: </strong> 
                 {% if profile.five_day_streak %} 
@@ -78,6 +88,7 @@ img {
                     <img src="{% static 'questions/images/Badge_5_black.png' %}" alt="three day streak black">
                 {%endif%}
             </div>
+
             <div class ="txtimg">
             <strong>Four day streak badge: </strong> 
                 {% if profile.seven_day_streak %} 
@@ -86,6 +97,7 @@ img {
                     <img src="{% static 'questions/images/Badge_6_black.png' %}" alt="four day streak black">
                 {%endif%}
             </div>
+
         {% endif %}          
     </p>
 </div> 
