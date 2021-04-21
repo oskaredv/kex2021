@@ -15,6 +15,9 @@ Here's your profile
 }</style>
 
 {% block content %}
+<body>
+    
+
 <div class = "filler">
 <div class ="container">
     <h1>{{user.username}}'s profile</h1>
@@ -76,17 +79,37 @@ Here's your profile
     </p>
 </div> 
 </div>
+</body>
 <style>
 
-.filler {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
-  background: lime; /* Just to visualize the extent */
-  
+.filler{
+    /* Height and width fallback for older browsers. */
+    height: 100%;
+    width: 100%;
+
+    /* Set the height to match that of the viewport. */
+    height: 100vh;
+
+    /* Set the width to match that of the viewport. */
+    width: 100vw;
+
+    /* Remove any browser-default margins. */
+    margin: 0;
+}
+    html, body {
+    /* Height and width fallback for older browsers. */
+    height: 100%;
+    width: 100%;
+
+    /* Set the height to match that of the viewport. */
+    height: 100vh;
+
+    /* Set the width to match that of the viewport. */
+    width: 100vw;
+
+    /* Remove any browser-default margins. */
+    margin: 0;
+
 }
     
     img {
