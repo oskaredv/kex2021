@@ -18,6 +18,10 @@ img {
     max-width: 50%;
     height: auto;
 }
+img.resize {
+  max-width:50%;
+  max-height:50%;
+}
 .txtimg{
     display: inline-block;
     text-align: center;
@@ -43,7 +47,7 @@ img {
             <div class ="txtimg">
                 <strong>First question badge: </strong>
                 {% if profile.first_question %} 
-                    <img src="{% static 'questions/images/Badge_1.png' %}" alt="first question">
+                <img class="resize" src="{% static 'questions/images/Badge_1.png' %}" alt="first question">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_1_black.png' %}" alt="first question black">
                 {%endif%}
