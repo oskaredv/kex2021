@@ -23,12 +23,18 @@ h1{
     color: green;
     margin: 25px 10px 15px 20px;
 }
+.filler{
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+}
 </style>
 {% block title %}
 Leaderboard
 {% endblock %}
 
 {%block content%}
+<div class="filler">
 <div class ="container">
     <h1>Leaderboard</h1>
     <p>A ranking of the top 10 users of the system based on their points. Do you have what it takes to be at the top?</p>
@@ -43,6 +49,7 @@ Leaderboard
             <li>No objects yet.</li>
         {% endfor %}
     </ol>
+</div>
 </div>
 {% endblock %}
 

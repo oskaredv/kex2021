@@ -9,8 +9,14 @@
     flex: 1 1 auto;
     /*grow vertically*/
     }
+    .filler{
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+}
 </style>
 {%block content%}
+<div class="filler">
 <div class="container" >
     <p><h1>About</h1>
     This system is part of our degree project in the course DA150X at KTH, Royal Institute of Technology. </p>
@@ -26,5 +32,6 @@
     If you have any questions about the study or the system, or if you are experiencing any issues,  please contact us at:
     <a href="mailto:mnordste@kth.se">mnordste@kth.se</a> or <a href="mailto:oskaredv@kth.se">oskaredv@kth.se</a> </p>
 
+</div>
 </div>
 {%endblock%}

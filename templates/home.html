@@ -30,9 +30,15 @@
   .infotext{
     color:green;
   }
+  .filler{
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+}
 </style>
 
 {% block content %}
+<div class="filler">
 <div class="page">
 <div class = "container">
 {% if user.is_authenticated %}
@@ -101,6 +107,7 @@
 </p>
 {% endif %}
 {%include 'questions/messages.html' %}
+</div>
 </div>
 </div>
 {% endblock %}
