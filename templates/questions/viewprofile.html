@@ -24,26 +24,24 @@ img.resize {
 .txtimg{
     display: inline-block;
     text-align: center;
-    max-width: 50%;
-    height: auto;
+
 }
 .txtimg > img{
     display: block;
-    max-width: 50%;
-    height: auto;
+    
 }
 </style>
 
 {% block content %}
 <div >
     <h1>{{user.username}}'s profile</h1>
-    <p>Here you can see some basic stats and your hard earned badge collection </p>
+    <p>Here you can see some basic stats {% if user|has_gamification %} and your hard earned badge collection {% endif %} </p>
     <p>            
         <p><strong>Number of Questions: </strong>{{profile.num_questions}} </p>
         {% if user|has_gamification %}
             <p><strong>Points: </strong>{{profile.points}} </p>
 
-            <div class ="txtimg">
+            <p><div class ="txtimg">
                 <strong>First question badge: </strong>
                 {% if profile.first_question %} 
                 <img class="resize" src="{% static 'questions/images/Badge_1.png' %}" alt="first question">
@@ -51,7 +49,6 @@ img.resize {
                     <img class="resize" src="{% static 'questions/images/Badge_1_black.png' %}" alt="first question black">
                 {%endif%}
             </div>
-
             <div class ="txtimg">
                 <strong>Two day streak badge: </strong> 
                     {% if profile.three_day_streak %} 
@@ -60,7 +57,7 @@ img.resize {
                         <img class="resize"src="{% static 'questions/images/Badge_4_black.png' %}" alt="three day streak black">
                     {%endif%}
                 </div>
-
+            </p>
                 <br>
 
             <div class ="txtimg">
