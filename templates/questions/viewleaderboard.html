@@ -38,7 +38,11 @@ Leaderboard
         <!-- Iterate over object_list -->
         {% for profile in profile_list %}
             <!-- Display Objects -->
+            {%if profile.points == 0 %}
+            <li> </li>
+            {%else%}
             <li>{{ profile.user.username }} - {{ profile.points }}</li>
+            {%endif%}
             <hr/>
             <!-- If objet_list is empty  -->
             {% empty %}
