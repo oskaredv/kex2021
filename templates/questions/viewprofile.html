@@ -53,7 +53,7 @@ Here's your profile
             <br>
             <div class ="txtimg">
             <strong>Two day streak badge: </strong> 
-                {% if profile.three_day_streak %} 
+                {% if profile.two_day_streak %} 
                     <img src="{% static 'questions/images/Badge_4.png' %}" alt="two day streak">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_4_black.png' %}" alt="three day streak black">
@@ -61,7 +61,7 @@ Here's your profile
             </div>
             <div class ="txtimg">
             <strong>Three day streak badge: </strong> 
-                {% if profile.five_day_streak %} 
+                {% if profile.three_day_streak %} 
                     <img src="{% static 'questions/images/Badge_5.png' %}" alt="three day streak">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_5_black.png' %}" alt="three day streak black">
@@ -69,7 +69,7 @@ Here's your profile
             </div>
             <div class ="txtimg">
             <strong>Four day streak badge: </strong> 
-                {% if profile.seven_day_streak %} 
+                {% if profile.four_day_streak %} 
                     <img src="{% static 'questions/images/Badge_6.png' %}" alt="four day streak">
                 {% else %}
                     <img src="{% static 'questions/images/Badge_6_black.png' %}" alt="four day streak black">
