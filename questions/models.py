@@ -63,15 +63,15 @@ class Profile(models.Model):
     def check_streak_badges(self):
         if self.streak == 4 :
             if not four_day_streak : 
-                four_day_streak = True
+                self.four_day_streak = True
                 self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(600)
             else :
                 self.just_gainded_badge = False
         elif self.streak == 3 :
-            if not self.two_day_streak :
-                self.two_day_streak = True
+            if not self.three_day_streak :
+                self.three_day_streak = True
                 self.just_gainded_badge = True
                 self.increment_num_badges()
                 self.increment_points_with_argument(400)
